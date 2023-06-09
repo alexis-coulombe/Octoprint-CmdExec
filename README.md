@@ -1,6 +1,6 @@
 # CmdExec
 
-**TODO:** Describe what your plugin does.
+This plugin allows executing custom shell commands through the Octoprint's UI.
 
 ## Setup
 
