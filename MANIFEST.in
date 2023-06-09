@@ -1,0 +1,4 @@
+include README.md
+recursive-include CmdExec/templates *
+recursive-include CmdExec/translations *
+recursive-include CmdExec/static *
