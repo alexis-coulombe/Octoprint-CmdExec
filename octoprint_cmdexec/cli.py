@@ -25,7 +25,6 @@ def commands(cli_group, pass_octoprint_ctx, *args, **kwargs):
     @client_options
     @click.command("execute")
     def execute_command(apikey, host, port, httpuser, httppass, https, prefix):
-        print(httpuser)
         r = api_command("execute", apikey, host, port, httpuser, httppass, https, prefix)
 
         if r.status_code in [200, 204]:
