@@ -1,17 +1,18 @@
 # coding=utf-8
 
 import octoprint.plugin
-import flask
+from flask import make_response
 from . import cli
 import subprocess
 
-__plugin_pythoncompat__ = ">=3.7,<4"
+from octoprint.access.permissions import Permissions
 
 class CmdExecPlugin(octoprint.plugin.StartupPlugin,
                     octoprint.plugin.TemplatePlugin,
                     octoprint.plugin.SettingsPlugin,
                     octoprint.plugin.AssetPlugin,
                     octoprint.plugin.SimpleApiPlugin):
+
     def get_settings_defaults(self):
         return dict(
             command=""
@@ -19,7 +20,6 @@ class CmdExecPlugin(octoprint.plugin.StartupPlugin,
 
     def get_template_configs(self):
         return [
-            #dict(type="navbar", custom_bindings=False),
             dict(type="settings", custom_bindings=False)
         ]
 
@@ -29,11 +29,15 @@ class CmdExecPlugin(octoprint.plugin.StartupPlugin,
         )
 
     def execute(self):
-        subprocess.run([self._settings.get(["command"])], shell=True)
+        subprocess.Popen(self._settings.get(["command"]), shell=True)
 
     def on_api_command(self, command, data):
+        if not Permissions.ADMIN.can():
+            return make_response("Insufficient rights", 403)
+
         if command == "execute":
             self.execute()
+        pass
 
     def get_assets(self):
         return {
@@ -46,12 +50,26 @@ class CmdExecPlugin(octoprint.plugin.StartupPlugin,
     def on_after_startup(self):
         command = self._settings.get(["command"])
 
-def __plugin_load__():
-    global __plugin_implementation__
-    __plugin_implementation__ = CmdExecPlugin()
+    def get_update_information(self):
+        return dict(
+            cmdexec=dict(
+                displayName="CMD Exec",
+                displayVersion=self._plugin_version,
 
-    global __plugin_hooks__
-    __plugin__hook__ = {
+                # version check: github repository
+                type="github_release",
+                user="Chargnn",
+                repo="Octoprint-CmdExec",
+                current=self._plugin_version,
+
+                # update method: pip w/ dependency links
+                pip="https://github.com/Chargnn/Octoprint-CmdExec/archive/refs/tags/{target_version}.zip"
+            )
+        )
+
+__plugin_name__ = "CMD Exec"
+__plugin_pythoncompat__ = ">=3.7,<4"
+__plugin_implementation__ = CmdExecPlugin()
+__plugin__hook__ = {
         "octoprint.cli.commands": cli.commands
-    }
-
+}
