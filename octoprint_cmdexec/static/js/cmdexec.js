@@ -3,6 +3,7 @@ $(function() {
         var self = this;
 
         self.settings = parameters[0];
+        self.loginState = parameters[1];
 
         self.executeCommand = function() {
             $.ajax({
@@ -19,7 +20,7 @@ $(function() {
 
     ADDITIONAL_VIEWMODELS.push([
         CmdExecViewModel,
-        ["settingsViewModel"],
+        ["settingsViewModel", "loginStateViewModel"],
         ["#navbar_plugin_cmdexec"]
     ]);
 });
