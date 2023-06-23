@@ -13,9 +13,13 @@ class CmdExecPlugin(octoprint.plugin.StartupPlugin,
                     octoprint.plugin.AssetPlugin,
                     octoprint.plugin.SimpleApiPlugin):
 
+    def __init__(self):
+        self._icons = self.get_icons()
+
     def get_settings_defaults(self):
         return dict(
-            command=""
+            command="",
+            icon="f120"
         )
 
     def get_template_configs(self):
@@ -27,6 +31,22 @@ class CmdExecPlugin(octoprint.plugin.StartupPlugin,
         return dict(
             execute=[]
         )
+
+    def get_icons(self):
+        return [
+            'f019', 'f093', 'f095',
+            'f0e0', 'e2ca', 'f030',
+            'f03d', 'f0f3', 'f0e7',
+            'f021', 'f02f', 'f121',
+            'f1eb', 'f011', 'f0eb',
+            'f120'
+        ]
+
+    def get_template_vars(self):
+        return {
+            'icons': self._icons,
+            'icon': self._settings.get(['icon'])
+        }
 
     def execute(self):
         subprocess.Popen(self._settings.get(["command"]), shell=True)
@@ -41,7 +61,8 @@ class CmdExecPlugin(octoprint.plugin.StartupPlugin,
 
     def get_assets(self):
         return {
-            "js": ["js/cmdexec.js"]
+            "js": ["js/cmdexec.js"],
+            "css": ["css/cmdexec.css"]
         }
 
     def on_settings_save(self, data):
