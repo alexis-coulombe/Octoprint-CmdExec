@@ -17,3 +17,5 @@ You can chain commands with the ```&&``` and write the result of a command to a 
 Here is an example to execute 3 commands: ```command1 && command2 && command3 >> log.txt```
 
 You can also execute a script directly on your computer by writing the path to the script ```./path/to/script```
+
+**The command execution is only allowed by admin users**
