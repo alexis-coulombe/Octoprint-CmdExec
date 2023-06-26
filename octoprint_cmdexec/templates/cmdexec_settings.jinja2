@@ -1,19 +1,25 @@
 <form class="form-horizontal">
     <div class="control-group">
-        <label class="control-label">{{ _('Bash command') }}</label>
+        <label for="command" class="control-label">{{ _('Bash command') }}</label>
         <div class="controls">
-            <input type="text" class="input-block-level" data-bind="value: settings.plugins.cmdexec.command">
+            <input type="text" id="command" class="input-block-level" data-bind="value: settings.plugins.cmdexec.command">
+            <span class="help-block">
+                Only users who are administrators can execute this command. Please check your user roles and be responsible.
+            </span>
         </div>
     </div>
 
     <div class="control-group">
-        <label class="control-label">{{ _('Navbar icon') }}</label>
+        <label for="icon" class="control-label">{{ _('Navbar icon') }}</label>
         <div class="controls">
-            <select class="fa-icon" data-bind="value: settings.plugins.cmdexec.icon">
+            <select id="icon"" class="fa-icon" data-bind="value: settings.plugins.cmdexec.icon">
                 {% for item in plugin_cmdexec_icons %}
                     <option value="{{ item }}">&#x{{ item }};</option>
                 {% endfor %}
             </select>
+            <span class="help-block">
+                Page reload is required to see the change
+            </span>
         </div>
     </div>
 </form>
