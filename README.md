@@ -9,9 +9,13 @@ or manually using this URL:
 
     https://github.com/Chargnn/CmdExec/archive/master.zip
 
-**TODO:** Describe how to install your plugin, if more needs to be done than just installing it via pip or through
-the plugin manager.
-
 ## Configuration
 
-**TODO:** Describe your plugin's configuration options (if any).
+In the plugin's settings page, enter the command you want to execute using the navbar button. You can also change the navbar icon if you want.
+
+You can chain commands with the ```&&``` and write the result of a command to a file with ```>>```.
+Here is an example to execute 3 commands: ```command1 && command2 && command3 >> log.txt```
+
+You can also execute a script directly on your computer by writing the path to the script ```./path/to/script```
+
+**The command execution is only allowed by admin users**
