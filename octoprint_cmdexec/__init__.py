@@ -19,7 +19,8 @@ class CmdExecPlugin(octoprint.plugin.StartupPlugin,
     def get_settings_defaults(self):
         return dict(
             command="",
-            icon="f120"
+            icon="f120",
+            tooltip="Execute the command"
         )
 
     def get_template_configs(self):
@@ -39,13 +40,15 @@ class CmdExecPlugin(octoprint.plugin.StartupPlugin,
             'f03d', 'f0f3', 'f0e7',
             'f021', 'f02f', 'f121',
             'f1eb', 'f011', 'f0eb',
-            'f120'
+            'f120', 'f52b', 'f52a',
+            'f188', 'f624', 'f04b'
         ]
 
     def get_template_vars(self):
         return {
             'icons': self._icons,
-            'icon': self._settings.get(['icon'])
+            'icon': self._settings.get(['icon']),
+            'tooltip': self._settings.get(['tooltip'])
         }
 
     def execute(self):
