@@ -5,7 +5,7 @@ from setuptools import setup
 plugin_identifier = "cmdexec"
 plugin_package = "octoprint_%s" % plugin_identifier
 plugin_name = "Octoprint-CmdExec"
-plugin_version = "1.1.0"
+plugin_version = "1.1.1"
 plugin_description = "Execute commands from Octoprint's UI"
 plugin_author = "Alexis Coulombe"
 plugin_author_email = "alexiscoulombe1436023@gmail.com"
