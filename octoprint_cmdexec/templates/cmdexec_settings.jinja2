@@ -1,4 +1,23 @@
 <form class="form-horizontal">
+    <h3>General settings</h3>
+    <div class="control-group">
+        <label for="icon" class="control-label">{{ _('Menu display config') }}</label>
+        <div class="controls">
+            <select data-bind="value: settings.plugins.cmdexec.displayMode">
+                {% for item in plugin_cmdexec_displayModes %}
+                    <option value="{{ item }}">{{ item }}</option>
+                {% endfor %}
+            </select>
+            <span class="help-block">
+                This setting will change the way that commands are displayed in the navigation bar. <br>
+                Page reload is required to see the change
+            </span>
+        </div>
+    </div>
+
+    <hr>
+
+    <h3>First command</h3>
     <div class="control-group">
         <label for="command" class="control-label">{{ _('Bash command') }}</label>
         <div class="controls">
@@ -27,6 +46,117 @@
         <label for="tooltip" class="control-label">{{ _('Tooltip text') }}</label>
         <div class="controls">
             <input type="text" id="tooltip" class="input-block-level" data-bind="value: settings.plugins.cmdexec.tooltip">
+            <span class="help-block">
+                Change the text that appears on mouse hover of the icon in the navigation bar
+            </span> 
+        </div>
+    </div>
+
+    <hr>
+
+    <h3>Second command</h3>
+    <div class="control-group">
+        <label for="command" class="control-label">{{ _('Bash command') }}</label>
+        <div class="controls">
+            <input type="text" id="command" class="input-block-level" data-bind="value: settings.plugins.cmdexec.command1">
+            <span class="help-block">
+                Only users who are administrators can execute this command. Please check your user roles and be responsible.
+            </span>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label for="icon" class="control-label">{{ _('Navbar icon') }}</label>
+        <div class="controls">
+            <select id="icon"" class="fa-icon" data-bind="value: settings.plugins.cmdexec.icon1">
+                {% for item in plugin_cmdexec_icons %}
+                    <option value="{{ item }}">&#x{{ item }};</option>
+                {% endfor %}
+            </select>
+            <span class="help-block">
+                Page reload is required to see the change
+            </span>
+        </div>
+    </div>
+
+    <div>
+        <label for="tooltip" class="control-label">{{ _('Tooltip text') }}</label>
+        <div class="controls">
+            <input type="text" id="tooltip" class="input-block-level" data-bind="value: settings.plugins.cmdexec.tooltip1">
+            <span class="help-block">
+                Change the text that appears on mouse hover of the icon in the navigation bar
+            </span> 
+        </div>
+    </div>
+
+    <hr>
+
+    <h3>Third command</h3>
+    <div class="control-group">
+        <label for="command" class="control-label">{{ _('Bash command') }}</label>
+        <div class="controls">
+            <input type="text" id="command" class="input-block-level" data-bind="value: settings.plugins.cmdexec.command2">
+            <span class="help-block">
+                Only users who are administrators can execute this command. Please check your user roles and be responsible.
+            </span>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label for="icon" class="control-label">{{ _('Navbar icon') }}</label>
+        <div class="controls">
+            <select id="icon"" class="fa-icon" data-bind="value: settings.plugins.cmdexec.icon2">
+                {% for item in plugin_cmdexec_icons %}
+                    <option value="{{ item }}">&#x{{ item }};</option>
+                {% endfor %}
+            </select>
+            <span class="help-block">
+                Page reload is required to see the change
+            </span>
+        </div>
+    </div>
+
+    <div>
+        <label for="tooltip" class="control-label">{{ _('Tooltip text') }}</label>
+        <div class="controls">
+            <input type="text" id="tooltip" class="input-block-level" data-bind="value: settings.plugins.cmdexec.tooltip2">
+            <span class="help-block">
+                Change the text that appears on mouse hover of the icon in the navigation bar
+            </span> 
+        </div>
+    </div>
+
+    <hr>
+
+    <h3>Fourth command</h3>
+    <div class="control-group">
+        <label for="command" class="control-label">{{ _('Bash command') }}</label>
+        <div class="controls">
+            <input type="text" id="command" class="input-block-level" data-bind="value: settings.plugins.cmdexec.command3">
+            <span class="help-block">
+                Only users who are administrators can execute this command. Please check your user roles and be responsible.
+            </span>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label for="icon" class="control-label">{{ _('Navbar icon') }}</label>
+        <div class="controls">
+            <select id="icon"" class="fa-icon" data-bind="value: settings.plugins.cmdexec.icon3">
+                {% for item in plugin_cmdexec_icons %}
+                    <option value="{{ item }}">&#x{{ item }};</option>
+                {% endfor %}
+            </select>
+            <span class="help-block">
+                Page reload is required to see the change
+            </span>
+        </div>
+    </div>
+
+    <div>
+        <label for="tooltip" class="control-label">{{ _('Tooltip text') }}</label>
+        <div class="controls">
+            <input type="text" id="tooltip" class="input-block-level" data-bind="value: settings.plugins.cmdexec.tooltip3">
             <span class="help-block">
                 Change the text that appears on mouse hover of the icon in the navigation bar
             </span> 
