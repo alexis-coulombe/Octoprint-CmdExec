@@ -23,10 +23,10 @@
             </a>
         {% endif %}
 {% elif plugin_cmdexec_displayMode == 'dropdown' %}
-    <div id="cmdexec-dropdown-button" style="padding: 10px 15px 10px; color: #333; border: none; cursor: pointer; font-weight: bold;">
+    <a id="cmdexec-dropdown-button" style="cursor: pointer; font-weight: bold;">
         Commands
-    </div>
-    <div id="cmdexec-dropdown" style="display: none; flex-direction: column; position: absolute; background-color: white; box-shadow: 0px 8px 16px rgba(0,0,0,0.1); z-index: 99999;">
+    </a>
+    <div id="cmdexec-dropdown" style="margin-top: 40px; display: none; flex-direction: column; position: absolute; background-color: white; box-shadow: 0px 8px 16px rgba(0,0,0,0.1); z-index: 99999;">
         {% if plugin_cmdexec_command %}
             <a href=#" title="{{ plugin_cmdexec_tooltip }}" style="font-size: 20px; text-decoration: none; padding: 10px 40px; color: #333;" data-bind="click: function() { $root.executeCommand(0); }, visible: (loginState.isAdmin())">
                 <span class="fa-icon">&#x{{ plugin_cmdexec_icon }};</span>
@@ -50,7 +50,7 @@
                 <span class="fa-icon">&#x{{ plugin_cmdexec_icon3 }};</span>
             </a> 
         {% endif %}
-    </div>
+    </a>
 
     <script>
         const button = document.querySelector('#cmdexec-dropdown-button');
