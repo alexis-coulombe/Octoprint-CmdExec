@@ -7,7 +7,7 @@ This plugin allows executing custom shell commands through the Octoprint's UI.
 Install via the bundled [Plugin Manager](https://docs.octoprint.org/en/master/bundledplugins/pluginmanager.html)
 or manually using this URL:
 
-    https://github.com/alexis-coulombe/CmdExec/archive/master.zip
+    https://github.com/alexis-coulombe/Octoprint-CmdExec/archive/master.zip
 
 ## Configuration
 
