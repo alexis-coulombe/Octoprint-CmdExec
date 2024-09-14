@@ -1,75 +1,71 @@
-<div>
-    {% if not plugin_cmdexec_displayMode or plugin_cmdexec_displayMode == 'list' %}
-        <div style="display: flex;">
-            {% if plugin_cmdexec_command %}
-                <a href="#" title="{{ plugin_cmdexec_tooltip }}" style="color: #333; text-decoration: none; padding: 10px 15px 10px" data-bind="click: function() { $root.executeCommand(0); }, visible: (loginState.isAdmin())">
-                    <span class="fa-icon">&#x{{ plugin_cmdexec_icon }};</span>
-                </a>
-            {% endif %}
+{% if not plugin_cmdexec_displayMode or plugin_cmdexec_displayMode == 'list' %}
+        {% if plugin_cmdexec_command %}
+            <a href="javascript:void(0)" title="{{ plugin_cmdexec_tooltip }}" data-bind="click: function() { $root.executeCommand(0); }, visible: (loginState.isAdmin())">
+                <span class="fa-icon">&#x{{ plugin_cmdexec_icon }};</span>
+            </a>
+        {% endif %}
 
-            {% if plugin_cmdexec_command1 %}
-                <a href="#" title="{{ plugin_cmdexec_tooltip1 }}" style="color: #333; text-decoration: none; padding: 10px 15px 10px" data-bind="click: function() { $root.executeCommand(1); }, visible: (loginState.isAdmin())">
-                    <span class="fa-icon">&#x{{ plugin_cmdexec_icon1 }};</span>
-                </a>
-            {% endif %}
+        {% if plugin_cmdexec_command1 %}
+            <a href="#" title="{{ plugin_cmdexec_tooltip1 }}" data-bind="click: function() { $root.executeCommand(1); }, visible: (loginState.isAdmin())">
+                <span class="fa-icon">&#x{{ plugin_cmdexec_icon1 }};</span>
+            </a>
+        {% endif %}
 
-            {% if plugin_cmdexec_command2 %}
-                <a href="#" title="{{ plugin_cmdexec_tooltip2 }}" style="color: #333; text-decoration: none; padding: 10px 15px 10px" data-bind="click: function() { $root.executeCommand(2); }, visible: (loginState.isAdmin())">
-                    <span class="fa-icon">&#x{{ plugin_cmdexec_icon2 }};</span>
-                </a>
-            {% endif %}
+        {% if plugin_cmdexec_command2 %}
+            <a href="#" title="{{ plugin_cmdexec_tooltip2 }}" data-bind="click: function() { $root.executeCommand(2); }, visible: (loginState.isAdmin())">
+                <span class="fa-icon">&#x{{ plugin_cmdexec_icon2 }};</span>
+            </a>
+        {% endif %}
 
-            {% if plugin_cmdexec_command3 %}
-                <a href="#" title="{{ plugin_cmdexec_tooltip3 }}" style="color: #333; text-decoration: none; padding: 10px 15px 10px" data-bind="click: function() { $root.executeCommand(3); }, visible: (loginState.isAdmin())">
-                    <span class="fa-icon">&#x{{ plugin_cmdexec_icon3 }};</span>
-                </a>
-            {% endif %}
-        </div>
-    {% elif plugin_cmdexec_displayMode == 'dropdown' %}
-        <div id="cmdexec-dropdown-button" style="padding: 10px 15px 10px; color: #333; border: none; cursor: pointer; font-weight: bold;">
-            Commands
-        </div>
-        <div id="cmdexec-dropdown" style="display: none; flex-direction: column; position: absolute; background-color: white; box-shadow: 0px 8px 16px rgba(0,0,0,0.1); z-index: 99999;">
-            {% if plugin_cmdexec_command %}
-                <a href=#" title="{{ plugin_cmdexec_tooltip }}" style="font-size: 20px; text-decoration: none; padding: 10px 40px; color: #333;" data-bind="click: function() { $root.executeCommand(0); }, visible: (loginState.isAdmin())">
-                    <span class="fa-icon">&#x{{ plugin_cmdexec_icon }};</span>
-                </a> 
-            {% endif %}
+        {% if plugin_cmdexec_command3 %}
+            <a href="#" title="{{ plugin_cmdexec_tooltip3 }}" data-bind="click: function() { $root.executeCommand(3); }, visible: (loginState.isAdmin())">
+                <span class="fa-icon">&#x{{ plugin_cmdexec_icon3 }};</span>
+            </a>
+        {% endif %}
+{% elif plugin_cmdexec_displayMode == 'dropdown' %}
+    <div id="cmdexec-dropdown-button" style="padding: 10px 15px 10px; color: #333; border: none; cursor: pointer; font-weight: bold;">
+        Commands
+    </div>
+    <div id="cmdexec-dropdown" style="display: none; flex-direction: column; position: absolute; background-color: white; box-shadow: 0px 8px 16px rgba(0,0,0,0.1); z-index: 99999;">
+        {% if plugin_cmdexec_command %}
+            <a href=#" title="{{ plugin_cmdexec_tooltip }}" style="font-size: 20px; text-decoration: none; padding: 10px 40px; color: #333;" data-bind="click: function() { $root.executeCommand(0); }, visible: (loginState.isAdmin())">
+                <span class="fa-icon">&#x{{ plugin_cmdexec_icon }};</span>
+            </a> 
+        {% endif %}
 
-            {% if plugin_cmdexec_command1 %}
-                <a href=#" title="{{ plugin_cmdexec_tooltip1 }}" style="font-size: 20px; text-decoration: none; padding: 10px 40px; color: #333;" data-bind="click: function() { $root.executeCommand(1); }, visible: (loginState.isAdmin())">
-                    <span class="fa-icon">&#x{{ plugin_cmdexec_icon1 }};</span>
-                </a> 
-            {% endif %}
+        {% if plugin_cmdexec_command1 %}
+            <a href=#" title="{{ plugin_cmdexec_tooltip1 }}" style="font-size: 20px; text-decoration: none; padding: 10px 40px; color: #333;" data-bind="click: function() { $root.executeCommand(1); }, visible: (loginState.isAdmin())">
+                <span class="fa-icon">&#x{{ plugin_cmdexec_icon1 }};</span>
+            </a> 
+        {% endif %}
 
-            {% if plugin_cmdexec_command2 %}
-                <a href=#" title="{{ plugin_cmdexec_tooltip2 }}" style="font-size: 20px; text-decoration: none; padding: 10px 40px; color: #333;" data-bind="click: function() { $root.executeCommand(2); }, visible: (loginState.isAdmin())">
-                    <span class="fa-icon">&#x{{ plugin_cmdexec_icon2 }};</span>
-                </a> 
-            {% endif %}
+        {% if plugin_cmdexec_command2 %}
+            <a href=#" title="{{ plugin_cmdexec_tooltip2 }}" style="font-size: 20px; text-decoration: none; padding: 10px 40px; color: #333;" data-bind="click: function() { $root.executeCommand(2); }, visible: (loginState.isAdmin())">
+                <span class="fa-icon">&#x{{ plugin_cmdexec_icon2 }};</span>
+            </a> 
+        {% endif %}
 
-            {% if plugin_cmdexec_command3 %}
-                <a href=#" title="{{ plugin_cmdexec_tooltip3 }}" style="font-size: 20px; text-decoration: none; padding: 10px 40px; color: #333;" data-bind="click: function() { $root.executeCommand(3); }, visible: (loginState.isAdmin())">
-                    <span class="fa-icon">&#x{{ plugin_cmdexec_icon3 }};</span>
-                </a> 
-            {% endif %}
-        </div>
+        {% if plugin_cmdexec_command3 %}
+            <a href=#" title="{{ plugin_cmdexec_tooltip3 }}" style="font-size: 20px; text-decoration: none; padding: 10px 40px; color: #333;" data-bind="click: function() { $root.executeCommand(3); }, visible: (loginState.isAdmin())">
+                <span class="fa-icon">&#x{{ plugin_cmdexec_icon3 }};</span>
+            </a> 
+        {% endif %}
+    </div>
 
-        <script>
-            const button = document.querySelector('#cmdexec-dropdown-button');
-            const dropdown = document.querySelector('#cmdexec-dropdown');
+    <script>
+        const button = document.querySelector('#cmdexec-dropdown-button');
+        const dropdown = document.querySelector('#cmdexec-dropdown');
 
-            if(button && dropdown) {
-                button.onclick = function() {
-                    dropdown.style.display = dropdown.style.display === 'flex' ? 'none' : 'flex';
-                };
+        if(button && dropdown) {
+            button.onclick = function() {
+                dropdown.style.display = dropdown.style.display === 'flex' ? 'none' : 'flex';
+            };
 
-                document.onclick = function(event) {
-                    if(event.target !== button && event.target !== dropdown) {
-                        dropdown.style.display = 'none';
-                    }
-                };
-            }
-        </script>
-    {% endif %}
-</div>
+            document.onclick = function(event) {
+                if(event.target !== button && event.target !== dropdown) {
+                    dropdown.style.display = 'none';
+                }
+            };
+        }
+    </script>
+{% endif %}

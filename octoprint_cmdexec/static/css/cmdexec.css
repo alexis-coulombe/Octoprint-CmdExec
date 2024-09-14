@@ -1,3 +1,7 @@
 .fa-icon {
     font-family: 'FontAwesome', 'sans-serif';
 }
+
+#navbar_plugin_cmdexec {
+    display: flex;
+}
