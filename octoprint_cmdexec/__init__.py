@@ -119,12 +119,12 @@ class CmdExecPlugin(octoprint.plugin.StartupPlugin,
 
                 # version check: github repository
                 type="github_release",
-                user="Chargnn",
+                user="alexis-coulombe",
                 repo="Octoprint-CmdExec",
                 current=self._plugin_version,
 
                 # update method: pip w/ dependency links
-                pip="https://github.com/Chargnn/Octoprint-CmdExec/archive/refs/tags/{target_version}.zip"
+                pip="https://github.com/alexis-coulombe/Octoprint-CmdExec/archive/refs/tags/{target_version}.zip"
             )
         )
 
